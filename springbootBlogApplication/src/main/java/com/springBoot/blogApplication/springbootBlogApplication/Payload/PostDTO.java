@@ -1,6 +1,9 @@
 package com.springBoot.blogApplication.springbootBlogApplication.Payload;
 
-import lombok.Data;
+import java.util.List;
+
+import com.springBoot.blogApplication.springbootBlogApplication.Entity.Comment;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,14 +11,38 @@ import lombok.Setter;
 @Setter
 //@Data
 public class PostDTO {
-	Long id;
+	long id;
 	String title;
 	String description;
 	String content;
-	public Long getId() {
+	String categorytitle;
+	int uid;
+	public int getUid() {
+		return uid;
+	}
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
+	List<Comment> cmt;
+	
+	
+	
+	public List<Comment> getCmt() {
+		return cmt;
+	}
+	public void setCmt(List<Comment> cmt) {
+		this.cmt = cmt;
+	}
+	public String getCategorytitle() {
+		return categorytitle;
+	}
+	public void setCategorytitle(String categorytitle) {
+		this.categorytitle = categorytitle;
+	}
+	public long getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getTitle() {

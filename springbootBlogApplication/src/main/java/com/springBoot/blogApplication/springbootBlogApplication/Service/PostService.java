@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.springBoot.blogApplication.springbootBlogApplication.Entity.Posts;
 import com.springBoot.blogApplication.springbootBlogApplication.Payload.PostDTO;
 @Service
 public interface PostService {
@@ -13,8 +14,14 @@ public interface PostService {
 
 	PostDTO getAllPostById(int id);
 
-	public String deletepostbyid(int id);
+	public String deletepostByid(int id);
 
 	PostDTO updatePostByID(PostDTO p);
+
+	List<Posts> getuserbyid(int uid);
+
+	
+
+	
 
 }

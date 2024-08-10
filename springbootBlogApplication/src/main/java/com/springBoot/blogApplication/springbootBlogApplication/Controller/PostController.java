@@ -17,8 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.springBoot.blogApplication.springbootBlogApplication.Entity.Category;
+import com.springBoot.blogApplication.springbootBlogApplication.Entity.Comment;
 import com.springBoot.blogApplication.springbootBlogApplication.Entity.Posts;
 import com.springBoot.blogApplication.springbootBlogApplication.Payload.PostDTO;
+import com.springBoot.blogApplication.springbootBlogApplication.Service.CategoryService;
+import com.springBoot.blogApplication.springbootBlogApplication.Service.CommentService;
 import com.springBoot.blogApplication.springbootBlogApplication.Service.PostService;
 
 @RestController
@@ -28,7 +32,10 @@ import com.springBoot.blogApplication.springbootBlogApplication.Service.PostServ
 public class PostController {
 	// @Autowired
 	private PostService postService;
-
+	@Autowired
+private CommentService commentservice;
+	@Autowired
+	private CategoryService categoryservice;
 	public PostController(PostService postService) {
 		this.postService = postService;
 	}
@@ -57,8 +64,10 @@ public class PostController {
 		return new ResponseEntity<>(postService.updatePostByID(p), HttpStatus.OK);
 
 	}
-	@DeleteMapping("delete/{id}")
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deletepost(@PathVariable int id){
-		return new ResponseEntity<>(postService.deletepostbyid(id),HttpStatus.OK);
+		
+		return new ResponseEntity<>(postService.deletepostByid(id),HttpStatus.OK);
 	}
+
 }
